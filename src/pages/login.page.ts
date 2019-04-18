@@ -1,6 +1,6 @@
-import BasePage from 'src/pages/BasePage';
+import BasePage from 'src/pages/page';
 
-class HomePage extends BasePage {
+class LoginPage extends BasePage {
   get logInButton() {
     return $('span=Log In');
   }
@@ -66,4 +66,4 @@ class HomePage extends BasePage {
   }
 }
 
-export default new HomePage();
+export default new LoginPage();

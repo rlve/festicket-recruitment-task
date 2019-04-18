@@ -1,32 +1,32 @@
 import { expect } from 'chai';
-import HomePage from 'src/pages/HomePage';
+import LoginPage from 'src/pages/login.page';
 
 const VALID_CREDENTIALS = {
-  email: 'radoslaw1kaminski@gmail.com',
-  password: 'festicketTest',
-  userLetter: 'R'
+  EMAIL: 'radoslaw1kaminski@gmail.com',
+  PASSWORD: 'festicketTest',
+  USER_LETTER: 'R'
 };
 
 describe('Login', () => {
   it('should log in with valid credentials', () => {
-    const { email, password, userLetter } = VALID_CREDENTIALS;
+    const { EMAIL, PASSWORD, USER_LETTER } = VALID_CREDENTIALS;
 
-    HomePage.open();
-    HomePage.logIn(email, password);
-    HomePage.waitForLoginModal(true);
+    LoginPage.open();
+    LoginPage.logIn(EMAIL, PASSWORD);
+    LoginPage.waitForLoginModal(true);
 
-    expect(HomePage.isLoggedIn(userLetter)).to.equal(
+    expect(LoginPage.isLoggedIn(USER_LETTER)).to.equal(
       true,
       'User is not logged in.'
     );
   });
 
   it('should log out', () => {
-    const { userLetter } = VALID_CREDENTIALS;
+    const { USER_LETTER } = VALID_CREDENTIALS;
 
-    HomePage.logOut(userLetter);
-    HomePage.waitForLoggedUserMenu(true);
+    LoginPage.logOut(USER_LETTER);
+    LoginPage.waitForLoggedUserMenu(true);
 
-    expect(HomePage.isLoggedIn()).to.equal(false, 'User is still logged in.');
+    expect(LoginPage.isLoggedIn()).to.equal(false, 'User is still logged in.');
   });
 });
