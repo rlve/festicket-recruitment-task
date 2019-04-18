@@ -4,7 +4,7 @@ import LoginPage from 'src/pages/login.page';
 const VALID_CREDENTIALS = {
   EMAIL: 'dummymail@mail.com',
   PASSWORD: 'festicketTest',
-  USER_LETTER: 'R'
+  USER_LETTER: 'D'
 };
 
 describe('Login', () => {
