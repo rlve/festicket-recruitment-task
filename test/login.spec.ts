@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import LoginPage from 'src/pages/login.page';
 
 const VALID_CREDENTIALS = {
-  EMAIL: 'radoslaw1kaminski@gmail.com',
+  EMAIL: 'dummymail@mail.com',
   PASSWORD: 'festicketTest',
   USER_LETTER: 'R'
 };
