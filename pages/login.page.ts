@@ -1,4 +1,4 @@
-import BasePage from 'src/pages/page';
+import BasePage from 'pages/page';
 
 class LoginPage extends BasePage {
   get logInButton() {
@@ -27,10 +27,6 @@ class LoginPage extends BasePage {
 
   get logOutButton() {
     return $('a=Log Out');
-  }
-
-  open() {
-    browser.url('');
   }
 
   waitForLoginModal(reverse: boolean = false) {

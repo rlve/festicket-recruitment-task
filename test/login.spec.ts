@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import LoginPage from 'src/pages/login.page';
+import LoginPage from 'pages/login.page';
 
 const VALID_CREDENTIALS = {
   EMAIL: 'dummymail@mail.com',
