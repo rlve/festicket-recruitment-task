@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import FestivalPage from 'pages/festival.page';
 import SearchPage from 'pages/search.page';
 
 const FESTIVAL = 'Orange Warsaw Festival 2019';
@@ -19,10 +20,14 @@ describe('Search', () => {
   it('should open result page after click on result', () => {
     SearchPage.selectResultWithTitle(FESTIVAL);
 
-    expect(SearchPage.getResultHeader()).to.equal(FESTIVAL, 'Not expected result page opened.');
+    expect(FestivalPage.isFestivalPageOpened()).to.equal(true, 'Festival Page is not opened.');
   });
 
-  it('url of result page should contain result title', () => {
+  it('Festival page should have header with festival name', () => {
+    expect(FestivalPage.getFestivalName()).to.equal(FESTIVAL, 'Not expected result page opened.');
+  });
+
+  it('url of Festival page should contain festival name', () => {
     const festivalWords = FESTIVAL.toLowerCase().split(' ');
 
     festivalWords.forEach((word) => {
