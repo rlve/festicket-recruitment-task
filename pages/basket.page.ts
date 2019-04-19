@@ -18,7 +18,7 @@ class BasketPage extends BasePage {
   }
 
   get basket() {
-    return $('div[data-cy=basket-body]')
+    return $('div[data-cy=basket-body]');
   }
 
   getItemInBasket(item: string): WebdriverIO.Element {
@@ -35,6 +35,15 @@ class BasketPage extends BasePage {
 
   isBasketPageOpened(): boolean {
     return this.basketHeader.isDisplayed();
+  }
+
+  getCoachByName(name: string): WebdriverIO.Element {
+    const searchedCoach = this.availableCoaches.find((coach) => this.getCoachNameFrom(coach) === name);
+    if (!searchedCoach) {
+      throw new Error('Coach not found.');
+    }
+
+    return searchedCoach;
   }
 
   getCoachNameFrom(coach: WebdriverIO.Element): string {
@@ -58,12 +67,12 @@ class BasketPage extends BasePage {
   }
 
   increaseQuantity(index: number) {
-    const increaseButton = this.getElementFromItemsInBasket(0, 'span button:nth-child(3)');
+    const increaseButton = this.getElementFromItemsInBasket(index, 'span button:nth-child(3)');
     increaseButton.click();
   }
 
   checkQuantity(index: number): number {
-    const quantity = this.getElementFromItemsInBasket(0, 'span > span');
+    const quantity = this.getElementFromItemsInBasket(index, 'span > span');
 
     return parseInt(quantity.getText(), 10);
   }

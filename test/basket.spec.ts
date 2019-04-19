@@ -22,22 +22,21 @@ describe('Basket', () => {
   });
 
   Object.keys(COACHES).forEach((key) => {
-    it(`should add coach: ${COACHES[key]}`, () => {
-      const coachTo = BasketPage.availableCoaches.find((coach) =>
-        BasketPage.getCoachNameFrom(coach) === COACHES[key]);
-      if (!coachTo) {
-        throw new Error('Coach not found.');
-      }
-      BasketPage.addCoach(coachTo);
+    const coachName = COACHES[key];
 
-      expect(BasketPage.isItemAdded(COACHES[key])).to.equal(true, 'Couch is not added to basket.');
+    it(`should add coach: ${coachName}`, () => {
+      const coach = BasketPage.getCoachByName(coachName);
+      BasketPage.addCoach(coach);
+
+      expect(BasketPage.isItemAdded(coachName)).to.equal(true, 'Couch is not added to basket.');
     });
   });
 
   it('should increase quantity of item element in basket', () => {
-    const quantity = BasketPage.checkQuantity(0);
-    BasketPage.increaseQuantity(0);
-    const newQuantity = BasketPage.checkQuantity(0);
+    const index = 0;
+    const quantity = BasketPage.checkQuantity(index);
+    BasketPage.increaseQuantity(index);
+    const newQuantity = BasketPage.checkQuantity(index);
 
     expect(newQuantity).to.be.above(quantity, 'Quantity is not increased.');
   });
