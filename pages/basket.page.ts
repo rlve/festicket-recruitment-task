@@ -17,6 +17,22 @@ class BasketPage extends BasePage {
     return $('button[data-cy=product-add-to-basket]');
   }
 
+  get basket() {
+    return $('div[data-cy=basket-body]')
+  }
+
+  getItemInBasket(item: string): WebdriverIO.Element {
+    return this.basket.$(`span*=${item}`);
+  }
+
+  getElementFromItemsInBasket(index: number, selector: string) {
+    const elements = this.basket.$$(selector);
+    if(elements.length < index+1) {
+      throw new Error('Not enough elements in basket.');
+    }
+    return elements[index];
+  }
+
   isBasketPageOpened(): boolean {
     return this.basketHeader.isDisplayed();
   }
@@ -38,7 +54,18 @@ class BasketPage extends BasePage {
   }
 
   isItemAdded(item: string): boolean {
-    return $('div[data-cy=basket-body]').$(`span*=${item}`).isDisplayed();
+    return this.getItemInBasket(item).isDisplayed();
+  }
+
+  increaseQuantity(index: number) {
+    const increaseButton = this.getElementFromItemsInBasket(0, 'span button:nth-child(3)');
+    increaseButton.click();
+  }
+
+  checkQuantity(index: number): number {
+    const quantity = this.getElementFromItemsInBasket(0, 'span > span');
+
+    return parseInt(quantity.getText(), 10);
   }
 }
 

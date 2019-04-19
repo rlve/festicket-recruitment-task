@@ -34,7 +34,11 @@ describe('Basket', () => {
     });
   });
 
-  it('', () => {
-    browser.pause(3000);
+  it('should increase quantity of item element in basket', () => {
+    const quantity = BasketPage.checkQuantity(0);
+    BasketPage.increaseQuantity(0);
+    const newQuantity = BasketPage.checkQuantity(0);
+
+    expect(newQuantity).to.be.above(quantity, 'Quantity is not increased.');
   });
 });
