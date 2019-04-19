@@ -5,11 +5,15 @@ class BasketPage extends BasePage {
     return $('h2=Basket');
   }
 
+  isBasketPageOpened(): boolean {
+    return this.basketHeader.isDisplayed();
+  }
+
   get availableCoaches() {
     return $$('h2#coach ~ a');
   }
 
-  get couchDateAddOne() {
+  get firstAvailableDepartureAddButton() {
     return $('button[data-cy=quantity-add-button]');
   }
 
@@ -33,10 +37,6 @@ class BasketPage extends BasePage {
     return elements[index];
   }
 
-  isBasketPageOpened(): boolean {
-    return this.basketHeader.isDisplayed();
-  }
-
   getCoachByName(name: string): WebdriverIO.Element {
     const searchedCoach = this.availableCoaches.find((coach) => this.getCoachNameFrom(coach) === name);
     if (!searchedCoach) {
@@ -52,9 +52,9 @@ class BasketPage extends BasePage {
 
   addCoach(coach: WebdriverIO.Element) {
     coach.click();
-    this.couchDateAddOne.waitForDisplayed();
-    this.couchDateAddOne.scrollIntoView();
-    this.couchDateAddOne.click();
+    this.firstAvailableDepartureAddButton.waitForDisplayed();
+    this.firstAvailableDepartureAddButton.scrollIntoView();
+    this.firstAvailableDepartureAddButton.click();
     if (this.addToBasketButton.isEnabled()) {
       this.addToBasketButton.click();
     } else {
