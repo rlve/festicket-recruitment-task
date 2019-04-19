@@ -14,7 +14,7 @@ npm i
 ```sh
 npm run test
 ```
-There are three test specs, however they will be executed sequentially and not concurrently. In this way it will be easier to observe how tests work.
+There are three test specs. However, they will be executed sequentially and not concurrently. In this way, it will be easier to observe how tests work.
 
 Generate report
 ```sh
