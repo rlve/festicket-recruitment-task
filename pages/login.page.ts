@@ -39,6 +39,7 @@ class LoginPage extends BasePage {
     this.waitForLoginModal();
     this.emailInput.setValue(email);
     this.passwordInput.setValue(password);
+    this.submitButton.waitForEnabled();
     this.submitButton.click();
   }
 

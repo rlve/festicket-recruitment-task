@@ -6,7 +6,11 @@
   "scripts": {
     "test": "wdio",
     "lint": "tslint --fix 'test/**/*.ts' && tslint --fix 'src/**/*.ts'",
-    "report": "allure generate ./allure-results --clean && allure open"
+    "report": "npm run report:saveHistory && npm run report:generate && npm run report:clear && npm run report:open",
+    "report:generate": "allure generate --clean 'allure-source' -o 'allure'",
+    "report:open": "allure open 'allure'",
+    "report:clear": "rimraf 'allure-source'",
+    "report:saveHistory": "mkdirp 'allure/history' && cp-cli 'allure/history' 'allure-source/history'"
   },
   "author": "Radoslaw Kaminski",
   "license": "ISC",
@@ -23,7 +27,10 @@
     "@wdio/sync": "^5.7.9",
     "allure-commandline": "^2.9.0",
     "chai": "^4.2.0",
+    "cp-cli": "^2.0.0",
+    "mkdirp": "^0.5.1",
     "mocha": "^6.1.3",
+    "rimraf": "^2.6.3",
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.8.0",
     "tslint": "^5.15.0",

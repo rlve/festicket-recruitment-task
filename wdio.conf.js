@@ -109,7 +109,7 @@ exports.config = {
     [
       'allure',
       {
-        outputDir: 'allure-results',
+        outputDir: 'allure-source',
         disableWebdriverStepsReporting: true
       }
     ]
