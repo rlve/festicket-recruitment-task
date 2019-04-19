@@ -21,4 +21,12 @@ describe('Search', () => {
 
     expect(SearchPage.getResultHeader()).to.equal(FESTIVAL, 'Not expected result page opened.');
   });
+
+  it('url of result page should contain result title', () => {
+    const festivalWords = FESTIVAL.toLowerCase().split(' ');
+
+    festivalWords.forEach((word) => {
+      expect(browser.getUrl()).to.include(word, `Page url does not contain: ${word}.`);
+    });
+  });
 });
