@@ -7,10 +7,10 @@
     "test": "wdio",
     "lint": "tslint --fix 'test/**/*.ts' && tslint --fix 'src/**/*.ts'",
     "report": "npm run report:saveHistory && npm run report:generate && npm run report:clear && npm run report:open",
-    "report:generate": "allure generate --clean 'allure-source' -o 'allure'",
-    "report:open": "allure open 'allure'",
-    "report:clear": "rimraf 'allure-source'",
-    "report:saveHistory": "mkdirp 'allure/history' && cp-cli 'allure/history' 'allure-source/history'"
+    "report:generate": "allure generate --clean allure-source -o allure",
+    "report:open": "allure open allure",
+    "report:clear": "rimraf allure-source",
+    "report:saveHistory": "mkdirp allure/history && cp-cli allure/history allure-source/history"
   },
   "author": "Radoslaw Kaminski",
   "license": "ISC",

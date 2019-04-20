@@ -7,7 +7,7 @@ const VALID_CREDENTIALS = {
   USER_LETTER: 'D'
 };
 
-describe('Login', () => {
+describe('Login scenario', () => {
   it('should log in with valid credentials', () => {
     const { EMAIL, PASSWORD, USER_LETTER } = VALID_CREDENTIALS;
 
