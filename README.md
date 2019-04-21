@@ -42,17 +42,25 @@ While testing Festicket app, I used many locators based on text or a partial tex
 
 I would spend more time figuring out how to organise page-objects. If dividing by pages (e.g. home page, search page) or features (login, search, festivals) would be better.
 
-I would try to create a more reusable method for adding items to the basket. At the moment it's possible to add only coaches.
+I would try to create a generic method for adding items to the basket. At the moment it's possible to add only coaches.
 
 I would add the possibility to choose the time of coach departure. For now, it chooses the first available.
 
 #### What other test cases would you automate and why?
 
+Firstly I would add negative cases to mentioned scenarios:
+
+- log in with invalid credentials and check validation message;
+- search for a not existing item and check message;
+- try to add a not available item to the basket and check that it isn't added.
+
+Moreover, it would be good to have fully automated sale funnel with payments and user communication. Also features in user profile like managing account settings and bookings. Errors in those parts of application could have a massive impact on user experience; on the other hand, reliable automated tests would increase developers' confidence for refactoring and implementing new features.
+
 #### What dependencies or 3rd party frameworks/libs/modules used and why?
 
 I used WebdriverIO as a framework to write Selenium tests. I chose it mainly because I'm familiar with it. I'm using it in my current job. It's a mature open-source framework with a big community and integrations with plenty of tools, services and reporters which may be helpful in test automation.
 
-I used TypeScript to write tests. WebdriverIO allows doing that quite painlessly. Dynamic typing in JS may be quite handy, but more often it caused runtime errors which were hard to debug and very frustrating for me. It may be nerve-racking when developing complicated selenium test which takes a longer time to execute. TypeScript eliminates it and adds excellent IDE support.
+I used TypeScript to write tests. WebdriverIO allows doing that quite painlessly. Dynamic typing in JS may be quite handy, but more often it causes runtime errors which are hard to debug and very frustrating. It may be nerve-racking when developing complicated selenium test which takes a longer time to execute. TypeScript eliminates it and adds excellent IDE support.
 
 I wrote test specs using Mocha with Chai assertions. It's concise and easy to read style. It's one of three frameworks supported by WebdriverIO beside Jasmine and Cucumber.
 
