@@ -8,7 +8,8 @@ Radosław Kamiński
 
 1. JDK 8 must be installed on the machine.
 2. Chrome must be installed on the machine.
-3. Install dependencies
+3. Node.js >= v10.15.3 installed on the machine with working node-gyp [https://github.com/nodejs/node-gyp]. It's required to compile fibers [https://www.npmjs.com/package/fibers] - it's a dependency of WebdriverIO.
+4. Install dependencies
 
 ```sh
 npm i
