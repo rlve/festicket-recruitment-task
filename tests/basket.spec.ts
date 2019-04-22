@@ -14,7 +14,7 @@ const FESTIVAL = {
 describe('Basket scenario', () => {
   const { COACHES, NAME, URL } = FESTIVAL;
 
-  it(`should open page of ${NAME}`, () => {
+  it(`should open the page of ${NAME}`, () => {
     browser.url(URL);
 
     expect(FestivalPage.isFestivalPageOpened()).to.equal(
@@ -23,30 +23,30 @@ describe('Basket scenario', () => {
     );
   });
 
-  it('should open basket page after click on book button', () => {
+  it('should open Basket after click on the book button', () => {
     FestivalPage.bookFestival();
 
     expect(BasketPage.isBasketPageOpened()).to.equal(
       true,
-      'Festival Page is not opened.'
+      'Basket is not opened.'
     );
   });
 
   Object.keys(COACHES).forEach((key) => {
     const coachName = COACHES[key];
 
-    it(`should add coach: ${coachName}`, () => {
+    it(`should add the coach: ${coachName}`, () => {
       const coach = BasketPage.getCoachByName(coachName);
       BasketPage.addCoach(coach);
 
       expect(BasketPage.isItemAdded(coachName)).to.equal(
         true,
-        'Couch is not added to basket.'
+        'Couch is not added to the basket.'
       );
     });
   });
 
-  it('should increase quantity of first item in basket', () => {
+  it('should increase quantity of the first item in the basket', () => {
     const index = 0;
     const quantity = BasketPage.checkQuantity(index);
     BasketPage.increaseQuantity(index);

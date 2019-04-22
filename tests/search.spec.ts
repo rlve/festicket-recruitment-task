@@ -5,7 +5,7 @@ import SearchPage from 'pages/search.page';
 const FESTIVAL = 'Orange Warsaw Festival 2019';
 
 describe('Search scenario', () => {
-  it('should open search page', () => {
+  it('should open Search Page', () => {
     SearchPage.open();
 
     expect(SearchPage.isSearchOpened()).to.equal(
@@ -14,7 +14,7 @@ describe('Search scenario', () => {
     );
   });
 
-  it('should display results when search input is filled', () => {
+  it('should display results when a search input is filled', () => {
     SearchPage.searchFor(FESTIVAL);
 
     expect(SearchPage.searchResults).to.have.length.above(
@@ -23,7 +23,7 @@ describe('Search scenario', () => {
     );
   });
 
-  it('should open result page after click on result', () => {
+  it('should open Festival Page after click on the result', () => {
     SearchPage.selectResultWithTitle(FESTIVAL);
 
     expect(FestivalPage.isFestivalPageOpened()).to.equal(
@@ -39,7 +39,7 @@ describe('Search scenario', () => {
     );
   });
 
-  it('url of Festival page should contain festival name', () => {
+  it('url of Festival Page should contain festival name', () => {
     const festivalWords = FESTIVAL.toLowerCase().split(' ');
 
     festivalWords.forEach((word) => {
