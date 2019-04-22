@@ -2,7 +2,7 @@
   "name": "festicket-recruitment-task",
   "version": "1.0.0",
   "description": "Recruitment task for Festicket.",
-  "repository": "",
+  "repository": "https://github.com/rlve/festicket-recruitment-task",
   "scripts": {
     "test": "wdio",
     "lint": "tslint --fix 'test/**/*.ts' && tslint --fix 'src/**/*.ts'",
