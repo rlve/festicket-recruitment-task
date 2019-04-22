@@ -64,7 +64,7 @@ I used TypeScript to write tests. WebdriverIO integrates with TypeScript quite p
 
 I wrote test specs using Mocha with Chai assertions. It's concise and easy to read style. It's one of three frameworks supported by WebdriverIO beside Jasmine and Cucumber.
 
-I added the possibility to generate Allure reports. Generated HTML reports look impressive and are very detailed. Content of the report may be configured by Allure API. It's one of supported reporters by WebdriverIO.
+I added the possibility to generate Allure reports. Generated HTML reports look impressive and are very detailed. Content of the report may be configured by Allure API. It's one of the supported reporters by WebdriverIO.
 #### Resources used
 
-WebdriverIO documentation.
+WebdriverIO documentation. https://webdriver.io
